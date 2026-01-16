@@ -35,6 +35,8 @@ EMP_BUILD_CONFIG(SymConfigBase,
     VALUE(OUSTING, bool, 0, "Should ousting (incoming symbiont kills and replaces existing symbiont) be turned on? (0 for no, 1 for yes)"),
     VALUE(FILE_PATH, std::string, "", "Output file path"),
     VALUE(FILE_NAME, std::string, "_data", "Root output file name"),
+    VALUE(CURE, bool, 0, "Should all symbionts die (0 for no, 1 for yes)"),
+    VALUE(CURE_UPDATES, int, 0, "How many updates should run before all symbionts die"),
 
     GROUP(MUTATION, "Mutation"),
     VALUE(MUTATION_SIZE, double, 0.002, "Standard deviation of the distribution to mutate by"),
