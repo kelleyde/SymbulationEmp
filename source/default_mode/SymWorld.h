@@ -681,9 +681,9 @@ public:
    * Purpose: Cure all hosts of symbionts
    */
   void CureHost(){
-    if(my_config->CURE && my_config->CURE_UPDATES > my_config->UPDATES){
+    if(my_config->CURE() && my_config->CURE_UPDATES() > my_config->UPDATES()){
       //loop through hosts and call ClearSyms() and ClearReproSyms()
-      for (size_t i = 0; i < pop.size; i++){
+      for (size_t i = 0; i < pop.size(); i++){
         pop[i]->ClearSyms();
         pop[i]->ClearReproSyms();
       };
