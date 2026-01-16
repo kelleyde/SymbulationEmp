@@ -672,6 +672,25 @@ public:
     }
   }
 
+
+  /**
+   * Input: None
+   * 
+   * Output: None
+   * 
+   * Purpose: Cure all hosts of symbionts
+   */
+  void CureHost(){
+    if(my_config->CURE && my_config->CURE_UPDATES > my_config->UPDATES){
+      //loop through hosts and call ClearSyms() and ClearReproSyms()
+      for (size_t i = 0; i < pop.size; i++){
+        pop[i]->ClearSyms();
+        pop[i]->ClearReproSyms();
+      };
+    }
+  }
+
+
   /**
    * Input: Optional boolean "verbose" that specifies whether to print the update numbers to standard output or not, defaults to true.
    *
