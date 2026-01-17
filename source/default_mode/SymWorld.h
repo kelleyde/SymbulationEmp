@@ -682,10 +682,9 @@ public:
    */
   void CureHost(){
     if(my_config->CURE() && my_config->CURE_UPDATES() > my_config->UPDATES()){
-      //loop through hosts and call ClearSyms() and ClearReproSyms()
-      for (size_t i = 0; i < pop.size(); i++){
-        pop[i]->ClearSyms();
-        pop[i]->ClearReproSyms();
+      //loop through symbionts and set them all to dead
+      for (size_t i = 0; i < sym_pop.size(); i++){
+        sym_pop[i]->SetDead();
       };
     }
   }
@@ -736,7 +735,7 @@ public:
 
     // Check CURE config
     CureHost()
-    
+
     // Handle resource inflow
     if (total_res != -1) {
       total_res += my_config->LIMITED_RES_INFLOW();
