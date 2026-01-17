@@ -734,6 +734,9 @@ public:
   void Update() {
     emp::World<Organism>::Update();
 
+    // Check CURE config
+    CureHost()
+    
     // Handle resource inflow
     if (total_res != -1) {
       total_res += my_config->LIMITED_RES_INFLOW();
