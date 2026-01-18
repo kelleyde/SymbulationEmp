@@ -709,6 +709,8 @@ public:
         std::cout.flush();
       }
       Update();
+      // Check CURE config
+      CureHost();
     }
 
     int num_no_mut_updates = my_config->NO_MUT_UPDATES();
@@ -722,6 +724,8 @@ public:
         std::cout.flush();
       }
       Update();
+      // Check CURE config
+      CureHost();
     }
   }
 
@@ -734,8 +738,6 @@ public:
    * Purpose: To simulate a timestep in the world, which includes calling the process functions for hosts and symbionts and updating the data nodes.
    */
   void Update() {
-    // Check CURE config
-    CureHost()
     emp::World<Organism>::Update();
 
 
