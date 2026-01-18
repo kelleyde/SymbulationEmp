@@ -682,10 +682,12 @@ public:
    */
   void CureHost(){
     if(my_config->CURE() && my_config->CURE_UPDATES() > my_config->UPDATES()){
+      std::cout << "Enter if statement: Kill all Syms" << std::endl;
       //loop through symbionts and set them all to dead
       for (size_t i = 0; i < sym_pop.size(); i++){
-        //sym_pop[i]->SetDead();
-        DoSymDeath(i);
+        std::cout << "Enter for loop:" << i << std::endl;
+        sym_pop[i]->SetDead();
+        //DoSymDeath(i);
       }
     }
   }
