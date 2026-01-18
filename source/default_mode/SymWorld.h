@@ -734,10 +734,10 @@ public:
    * Purpose: To simulate a timestep in the world, which includes calling the process functions for hosts and symbionts and updating the data nodes.
    */
   void Update() {
-    emp::World<Organism>::Update();
-
     // Check CURE config
     CureHost()
+    emp::World<Organism>::Update();
+
 
     // Handle resource inflow
     if (total_res != -1) {
