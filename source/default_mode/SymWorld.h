@@ -681,11 +681,15 @@ public:
    * Purpose: Cure all hosts of symbionts
    */
   void CureHost(){
+    std::cout <<"CureHost() called"<<std::endl:
+    std::cout.flush();
     if(my_config->CURE() && my_config->CURE_UPDATES() > my_config->UPDATES()){
       std::cout << "Enter if statement: Kill all Syms" << std::endl;
+      std::cout.flush();
       //loop through symbionts and set them all to dead
       for (size_t i = 0; i < sym_pop.size(); i++){
         std::cout << "Enter for loop:" << i << std::endl;
+        std::cout.flush();
         sym_pop[i]->SetDead();
         //DoSymDeath(i);
       }
@@ -708,9 +712,9 @@ public:
         std::cout <<"Update: "<< i << std::endl;
         std::cout.flush();
       }
-      Update();
       // Check CURE config
       CureHost();
+      Update();
     }
 
     int num_no_mut_updates = my_config->NO_MUT_UPDATES();
@@ -723,9 +727,9 @@ public:
         std::cout <<"No mutation update: "<< i << std::endl;
         std::cout.flush();
       }
-      Update();
       // Check CURE config
       CureHost();
+      Update();
     }
   }
 
