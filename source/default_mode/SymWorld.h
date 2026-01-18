@@ -684,8 +684,9 @@ public:
     if(my_config->CURE() && my_config->CURE_UPDATES() > my_config->UPDATES()){
       //loop through symbionts and set them all to dead
       for (size_t i = 0; i < sym_pop.size(); i++){
-        sym_pop[i]->SetDead();
-      };
+        //sym_pop[i]->SetDead();
+        DoSymDeath(i);
+      }
     }
   }
 
