@@ -1632,3 +1632,24 @@ TEST_CASE("SendToGraveyard", "[default]") {
   }
 
 }
+
+TEST_CASE("CureHost", "[default]") {
+  GIVEN("a world") {
+    emp::Random random(17);
+    SymConfigBase config;
+    SymWorld world(random, &config);
+    config.CURE(1);
+    config.CURE_UPDATES(10);
+    int num_updates = 20;
+
+    WHEN("Hosts are cured of all symbionts") {
+      //Simulate
+      for(int i = 0; i < num_updates; i++) {
+        world.Update();
+        if(i > config.CURE_UPDATES()) {
+          REQUIRE(worlds.GetSymPop().size() == 0);
+        }
+      }
+    }
+  }
+}
