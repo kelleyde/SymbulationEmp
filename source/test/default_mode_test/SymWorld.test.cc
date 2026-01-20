@@ -1647,7 +1647,7 @@ TEST_CASE("CureHost", "[default]") {
       for(int i = 0; i < num_updates; i++) {
         world.Update();
         if(i > config.CURE_UPDATES()) {
-          REQUIRE(worlds.GetSymPop().size() == 0);
+          REQUIRE(world.GetSymPop().size() == 0);
         }
       }
     }
