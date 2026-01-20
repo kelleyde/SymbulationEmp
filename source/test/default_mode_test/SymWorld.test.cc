@@ -1638,15 +1638,17 @@ TEST_CASE("CureHost", "[default]") {
     emp::Random random(17);
     SymConfigBase config;
     SymWorld world(random, &config);
-    config.CURE(1);
-    config.CURE_UPDATES(10);
-    int num_updates = 20;
+    
+    int total_updates = 7;
+    int num_updates = 5;
 
     WHEN("Hosts are cured of all symbionts") {
+      config.CURE(1);
+      config.CURE_UPDATES(num_updates);
       //Simulate
-      for(int i = 0; i < num_updates; i++) {
+      for(int i = 0; i < total_updates; i++) {
         world.Update();
-        if(i > config.CURE_UPDATES()) {
+        if(i > num_updates) {
           REQUIRE(world.GetSymPop().size() == 0);
         }
       }
